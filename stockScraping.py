@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-import urllib2
+from urllib.request import urlopen
 from bs4 import BeautifulSoup
 
 #user define
@@ -13,7 +13,7 @@ StockPriceClassName = 'Trsdu(0.3s) Fw(b) Fz(36px) Mb(-4px) D(ib)'
 #printout ticker and stock price
 for ticker in tickerList:
     url = YahooFinanceURL.format(ticker)
-    html = urllib2.urlopen(url)
+    html = urlopen(url)
     soup = BeautifulSoup(html, "html.parser")
     stockPrice = soup.find(class_ = StockPriceClassName);
     print(ticker + " : " + stockPrice.get_text())
