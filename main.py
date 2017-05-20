@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-import StockPricechecker
+import PriceChecker
 
 # main-routine
 
@@ -12,6 +12,6 @@ benchmarkTickerList = ['HDV', 'VTI', 'VT', 'VYM']
 tickerList = ownTickerList + benchmarkTickerList
 
 #printout ticker and stock price
+checker = PriceChecker.PriceChecker()
 for ticker in tickerList:
-    scraper = StockPricechecker.StockPriceChecker()
-    print(ticker + " : " + scraper.fetchPrice(ticker))
+    print(ticker + " : " + checker.fetchPrice(ticker))
